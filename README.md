@@ -1,88 +1,149 @@
-# Azure AI Solutions Quick Start Template <img src="./utils/images/azure_logo.png" alt="Azure Logo" style="width:30px;height:30px;"/>
+# Building a Better Evaluation Framework for LLMs and SLMs
 
-Welcome to the Azure AI Solutions Quick Start Template! This repository is designed to be a rapid launchpad for your Azure AI projects. Whether you're working in an enterprise or academic environment, this template integrates best practices to ensure a smooth development journey from start to finish.
+Hey there! You've stumbled upon our project where we're diving deep into the nuts and bolts of evaluating Generative AI applications, focusing on both Large and Smaller Language Models. This repo is our shared notebook, a place where we document our experiments, findings, and the technical challenges we tackle along the way. Using PromptFlow as our foundation, we're piecing together a framework that's all about getting hands-on and making sense of how to best evaluate and benchmark these complex AI systems. Join us in this technical exploration.
 
-## 💼 Using this Template: Your Gateway to Advanced AI Development & Collaboration!
+## 🤖 Challenges in LLM/SLM Evaluation
 
-- **🔄 Development Workflow**: Get to know our optimized workflow, designed to foster effective collaboration and a focus on product-centric development. See our [CONTRIBUTING GUIDE](./CONTRIBUTING.md) for more details.
+Evaluating LLMs and SLMs presents unique challenges, including the need for continuous evaluation, adherence to responsible AI practices, and the tailoring of evaluation metrics to specific applications. Prompt Flow addresses these challenges by offering:
 
-- **🚀 Advanced AI Development Process**: Understand the specifics of managing Azure AI projects, from issue reporting to pull requests, while adhering to best practices in advanced feature development and complex system troubleshooting.
+- **Continuous Integration, Evaluation, and Deployment (CI/CE/CD)**: Implementing LLMOps for effective lifecycle management.
+- **Responsible AI Practices**: Ensuring ethical use and mitigating potential risks.
+- **Tailored Evaluation Metrics**: Customizing metrics for meaningful assessments.
 
-- **🔍 Testing & QA for AI Systems**: Learn about the importance of rigorous testing in AI projects and discover efficient development and testing techniques tailored for AI systems with tools like Jupyter Notebooks and `%%ipytest`.
+## 💡 Why PromptFlow is Our Go-To for AI Evaluation
 
-- **🔢 Version & Branching Strategies for AI Projects**: Get to know our versioning system and explore the project’s branching strategy, which ensures smooth transitions between development, staging, and production, especially for AI-driven applications.
+Our choice to integrate PromptFlow into our workflow was driven by its ability to cater to our specific evaluation needs. Here's a closer look at why it's our toolkit of choice:
 
-- To stay updated with the latest developments and document significant changes to this project, please refer to [CHANGELOG.md](CHANGELOG.md).
+- **Tailored Workflows**: PromptFlow's flexibility shines in its ability to let us craft evaluation workflows that are just right for our models. Whether it's offline analysis or real-time testing, we've got the tools we need to put our AI through its paces.
 
-## Requirements
+- **Comprehensive Testing**: The framework supports both offline and online evaluation strategies. This dual approach allows us to thoroughly vet our models in both controlled settings and live environments, ensuring they're up to any challenge.
 
-> Modify as needed by project 
+- **Deep Dive Insights**: With PromptFlow's advanced tracing and observability, we're never in the dark about how our models are performing. Tracking every input and output gives us a granular view of our AI's behavior, making it easier to tweak, tune, and improve.
 
-### Setting Up Azure AI Services
+#### 🛠️ Implementing Your Evaluation Workflows
 
-- Azure OpenAI Service: You need to create an Azure OpenAI service instance and obtain the API key. [start here](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
-- Azure Speech AI Service: Required for speech-to-text conversion. Set up the service and get the subscription key and region. [start here](https://azure.microsoft.com/en-us/products/ai-services/ai-speech)
-- Azure Language Service: Necessary for language understanding and intent recognition.[start here](https://azure.microsoft.com/en-us/products/ai-services/ai-language)
+PromptFlow enables developers to define and manage evaluation workflows, automate prompt testing, and analyze outputs effectively. Follow our guides to implement your evaluation strategies:
 
-### Configuration Env variables
+1. **Define Evaluation Workflows**: Utilize Prompt Flow to set up comprehensive evaluation workflows.
+2. **Automate Prompt Testing**: Leverage the framework to automate the testing of prompts and analyze outputs.
+3. **Analyze and Optimize**: Use the insights gained from evaluations to debug, optimize, and improve your GenAI applications.
 
-We will now use environment variables to store our configuration. This is a more secure practice as it prevents sensitive data from being accidentally committed and pushed to version control systems.
+#### 🔍 Enhanced Tracing and Observability
 
-Create a `.env` file in your project root and add the following variables:
+With PromptFlow, developers gain enhanced tracing and observability features, allowing for detailed monitoring of GenAI applications from input to output. This includes:
+
+- **Flexibility in Tracing**: Support for various endpoints, including Azure AI Studio and Azure Application Insights.
+- **Streamlined Deployment**: Deploy optimized GenAI applications to Azure AI Studio for secure and scalable development.
+- **Flex Flow**: Incorporate your applications into Prompt Flow for comprehensive evaluation and debugging.
+
+#### 📊 Centralized Test History and Enhanced Analysis
+
+PromptFlow's integration with Azure AI Studio offers centralized test history, enhanced test analysis, and asset reutilization, facilitating:
+
+- **Centralized Test History**: Store and track all historical tests for easy accessibility.
+- **Enhanced Analysis**: Extract and visualize test results for comprehensive comparisons.
+- **Asset Reutilization**: Streamline workflows by reusing previous test assets for efficiency.
+
+## 🚀 How to Get Started
+
+Before you begin, ensure you have the following:
+
+- Access to Azure AI Studio 
+
+Let's get your development environment set up:
+
+#### Configure Environment Variables 
+
+Before running this notebook, you must configure certain environment variables to securely store our configuration. This practice helps in preventing sensitive data from being accidentally committed to version control systems.
+
+Create a [`.env`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fpablosal%2FDesktop%2Fgbb-ai-llm-slm-evaluation-framework%2F.env%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\pablosal\Desktop\gbb-ai-llm-slm-evaluation-framework\.env") file in your project root (use the provided [`.env.sample`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fpablosal%2FDesktop%2Fgbb-ai-llm-slm-evaluation-framework%2F.env.sample%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\pablosal\Desktop\gbb-ai-llm-slm-evaluation-framework\.env.sample") as a template) and add the following variables:
 
 ```env
-# Your Azure Speech Service subscription key
-SPEECH_KEY=<Your_Azure_Speech_Service_Subscription_Key>
-
-# Your Azure Speech Service region
-SPEECH_REGION=<Your_Azure_Speech_Service_Region>
-
-# Your Azure Machine Learning workspace key
-INTENT_KEY=<Your_Azure_Machine_Learning_Workspace_Key>
-
-# Your Azure OpenAI API key
-OPENAI_KEY=<Your_Azure_OpenAI_API_Key>
-
-# The model used for chat
-CHAT_MODEL=<Your_Chat_Model>
-
-# The model used for completions
-COMPLETION_MODEL=<Your_Completion_Model>
-
-# The base URL for the OpenAI API
-OPENAI_API_BASE=<Your_OpenAI_API_Base_URL>
-
-# The version of the OpenAI API
-OPENAI_API_VERSION=<Your_OpenAI_API_Version>
-
-# Your Azure Storage connection string
-AZURE_STORAGE_CONNECTION_STRING=<Your_Azure_Storage_Connection_String>
-``` 
-
-`SPEECH_KEY` and `SPEECH_REGION` are used for the Azure Speech Service.
-`INTENT_KEY` is used for the Azure Machine Learning workspace.
-`OPENAI_KEY`, `CHAT_MODEL`, `COMPLETION_MODEL`, `OPENAI_API_BASE`, and `OPENAI_API_VERSION` are used for the Azure OpenAI API.
-`AZURE_STORAGE_CONNECTION_STRING` is used for Azure Storage.
-
-> 📌 Note Remember not to commit the .env file to your version control system. Add it to your .gitignore file to prevent it from being tracked.
-
-## 🌲 Project Tree Structure
-
-```markdown
-📂 gbbai-azure-ai-template
-┣ 📂 notebooks <- For development, EDA, and quick testing (Jupyter notebooks for analysis and development).
-┣ 📂 src <- Houses main source code for data processing, feature engineering, modeling, inference, and evaluation.
-┣ 📂 test <- Runs unit and integration tests for code validation and QA.
-┣ 📂 utils <- Contains utility functions and shared code used throughout the project.
-┣ 📜 .env.sample <- Sample environment variables file. Replace with your own.
-┣ 📜 .pre-commit-config.yaml <- Config for pre-commit hooks ensuring code quality and consistency.
-┣ 📜 01-workshop.ipynb <- Jupyter notebook for the workshop.
-┣ 📜 CHANGELOG.md <- Logs project changes, updates, and version history.
-┣ 📜 USAGE.md <- Guidelines for using this template.
-┣ 📜 environment.yaml <- Conda environment configuration.
-┣ 📜 Makefile <- Simplifies common development tasks and commands.
-┣ 📜 pyproject.toml <- Configuration file for build system requirements and packaging-related metadata.
-┣ 📜 README.md <- Overview, setup instructions, and usage details of the project.
-┣ 📜 requirements-codequality.txt <- Requirements for code quality tools and libraries.
-┣ 📜 requirements.txt <- General project dependencies.
+# Azure Open AI Completion Configuration
+AZURE_AOAI_API_KEY=""
+AZURE_AOAI_COMPLETION_MODEL_DEPLOYMENT_ID=""
+AZURE_AOAI_ENDPOINT=""
+AZURE_AOAI_DEPLOYMENT_VERSION=""
+AZURE_AI_STUDIO_SUBSCRIPTION_ID=""
+AZURE_AI_STUDIO_RESOURCE_GROUP_NAME=""
+AZURE_AI_STUDIO_PROJECT_NAME=""
 ```
+
+Please replace the placeholders with your actual Azure OpenAI and Azure AI Studio configuration details:
+
+- `AZURE_AOAI_API_KEY`: Your Azure OpenAI API key. You can obtain this from the Azure OpenAI service.
+- `AZURE_AOAI_COMPLETION_MODEL_DEPLOYMENT_ID`: The deployment ID for your Azure OpenAI model.
+- `AZURE_AOAI_ENDPOINT`: The endpoint URL for your Azure OpenAI service.
+- `AZURE_AOAI_DEPLOYMENT_VERSION`: The version of your Azure OpenAI deployment.
+- `AZURE_AI_STUDIO_SUBSCRIPTION_ID`: Your Azure subscription ID where the AI Studio project is hosted.
+- `AZURE_AI_STUDIO_RESOURCE_GROUP_NAME`: The name of the resource group for your AI Studio project.
+- `AZURE_AI_STUDIO_PROJECT_NAME`: The name of your AI Studio project.
+
+To gather your Azure OpenAI API keys, visit the [Azure OpenAI service documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/). For the keys related to your project in Azure AI Studio, you can find them in your project's settings within the Azure portal.
+
+> 📌 **Note**
+> Remember not to commit the .env file to your version control system. Add it to your .gitignore file to prevent it from being tracked.
+
+#### Setting Up Conda Environment and Configuring VSCode for Jupyter Notebooks (Optional)
+
+Follow these steps to create a Conda environment and set up your VSCode for running Jupyter Notebooks:
+
+##### Create Conda Environment from the Repository
+
+> Instructions for Windows users: 
+
+1. **Create the Conda Environment**:
+   - In your terminal or command line, navigate to the repository directory.
+   - Execute the following command to create the Conda environment using the [`environment.yaml`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fpablosal%2FDesktop%2Fgbb-ai-llm-slm-evaluation-framework%2Fenvironment.yaml%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\pablosal\Desktop\gbb-ai-llm-slm-evaluation-framework\environment.yaml") file:
+     ```bash
+     conda env create -f environment.yaml
+     ```
+   - This command creates a Conda environment as defined in [`environment.yaml`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fpablosal%2FDesktop%2Fgbb-ai-llm-slm-evaluation-framework%2Fenvironment.yaml%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\pablosal\Desktop\gbb-ai-llm-slm-evaluation-framework\environment.yaml").
+
+2. **Activating the Environment**:
+   - After creation, activate the new Conda environment by using:
+     ```bash
+     conda activate promptflow-eval-framework
+     ```
+
+> Instructions for Linux users (or Windows users with WSL or other linux setup): 
+
+1. **Use `make` to Create the Conda Environment**:
+   - In your terminal or command line, navigate to the repository directory and look at the Makefile.
+   - Execute the `make` command specified below to create the Conda environment using the `environment.yaml` file:
+     ```bash
+     make create_conda_env
+     ```
+
+2. **Activating the Environment**:
+   - After creation, activate the new Conda environment by using:
+     ```bash
+     conda activate promptflow-eval-framework
+     ```
+
+##### Configure VSCode for Jupyter Notebooks
+
+1. **Install Required Extensions**:
+   - Download and install the `Python` and `Jupyter` extensions for VSCode. These extensions provide support for running and editing Jupyter Notebooks within VSCode.
+
+2. **Open the Notebook**:
+   - Open the Jupyter Notebook file (`01-promptflow-evaluation-howto.ipynb`) in VSCode.
+
+3. **Attach Kernel to VSCode**:
+   - After creating the Conda environment, it should be available in the kernel selection dropdown. This dropdown is located in the top-right corner of the VSCode interface.
+   - Select your newly created environment (`promptflow-eval-framework`) from the dropdown. This sets it as the kernel for running your Jupyter Notebooks.
+
+4. **Run the Notebook**:
+   - Once the kernel is attached, you can run the notebook by clicking on the "Run All" button in the top menu, or by running each cell individually.
+
+
+By following these steps, you'll establish a dedicated Conda environment for your project and configure VSCode to run Jupyter Notebooks efficiently. This environment will include all the necessary dependencies specified in your `environment.yaml` file. If you wish to add more packages or change versions, please use `pip install` in a notebook cell or in the terminal after activating the environment, and then restart the kernel. The changes should be automatically applied after the session restarts.
+
+## 📚 Resources
+
+- **Prompt Flow Documentation**: For detailed information on Prompt Flow and its components, visit our [Documentation]().
+- **Tutorials**: Check out our [Tutorials]() for hands-on guides on setting up and utilizing Prompt Flow for LLM/SLM evaluation.
+
+### Disclaimer
+> [!IMPORTANT]
+> This software is provided for demonstration purposes only. It is not intended to be relied upon for any purpose. The creators of this software make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the software or the information, products, services, or related graphics contained in the software for any purpose. Any reliance you place on such information is therefore strictly at your own risk.

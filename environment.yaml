@@ -1,4 +1,4 @@
-name: my-template-environment
+name: eval-framework
 channels:
   - conda-forge
   - defaults
@@ -7,5 +7,3 @@ dependencies:
   - pip
   - pip:
     - -r requirements.txt
-    - -r requirements-codequality.txt
-    - -r requirements-pipelines.txt
