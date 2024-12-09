@@ -1,2 +1,10 @@
 promptflow-azure
 promptflow-evals
+azure-ai-projects
+azure-identity
+azure-ai-inference
+azure-ai-evaluation
+plotly
+azure-monitor-opentelemetry 
+azure-ai-inference[opentelemetry] 
+opentelemetry-exporter-otlp

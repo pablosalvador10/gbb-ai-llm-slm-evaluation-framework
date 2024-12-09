@@ -1,0 +1,2 @@
+{"query": "What is the capital of France?", "context": "France is in Europe", "response": "Paris is the capital of France.", "ground_truth": "Paris"}
+{"query": "Who discovered gravity?", "context": "Isaac Newton discovered gravity when an apple fell on his head.", "response": "Isaac Newton.", "ground_truth": "Isaac Newton"}
