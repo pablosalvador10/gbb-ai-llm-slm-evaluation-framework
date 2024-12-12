@@ -32,13 +32,13 @@ PromptFlow enables developers to define and manage evaluation workflows, automat
 
 With PromptFlow, developers gain enhanced tracing and observability features, allowing for detailed monitoring of GenAI applications from input to output. This includes:
 
-- **Flexibility in Tracing**: Support for various endpoints, including Azure AI Studio and Azure Application Insights.
-- **Streamlined Deployment**: Deploy optimized GenAI applications to Azure AI Studio for secure and scalable development.
+- **Flexibility in Tracing**: Support for various endpoints, including Azure AI Foundry and Azure Application Insights.
+- **Streamlined Deployment**: Deploy optimized GenAI applications to Azure AI Foundry for secure and scalable development.
 - **Flex Flow**: Incorporate your applications into Prompt Flow for comprehensive evaluation and debugging.
 
 #### 📊 Centralized Test History and Enhanced Analysis
 
-PromptFlow's integration with Azure AI Studio offers centralized test history, enhanced test analysis, and asset reutilization, facilitating:
+PromptFlow's integration with Azure AI Foundry offers centralized test history, enhanced test analysis, and asset reutilization, facilitating:
 
 - **Centralized Test History**: Store and track all historical tests for easy accessibility.
 - **Enhanced Analysis**: Extract and visualize test results for comprehensive comparisons.
@@ -48,7 +48,7 @@ PromptFlow's integration with Azure AI Studio offers centralized test history, e
 
 Before you begin, ensure you have the following:
 
-- Access to Azure AI Studio 
+- Access to Azure AI Foundry 
 
 Let's get your development environment set up:
 
@@ -69,7 +69,7 @@ AZURE_AI_STUDIO_RESOURCE_GROUP_NAME=""
 AZURE_AI_STUDIO_PROJECT_NAME=""
 ```
 
-Please replace the placeholders with your actual Azure OpenAI and Azure AI Studio configuration details:
+Please replace the placeholders with your actual Azure OpenAI and Azure AI Foundry configuration details:
 
 - `AZURE_AOAI_API_KEY`: Your Azure OpenAI API key. You can obtain this from the Azure OpenAI service.
 - `AZURE_AOAI_COMPLETION_MODEL_DEPLOYMENT_ID`: The deployment ID for your Azure OpenAI model.
@@ -79,7 +79,7 @@ Please replace the placeholders with your actual Azure OpenAI and Azure AI Studi
 - `AZURE_AI_STUDIO_RESOURCE_GROUP_NAME`: The name of the resource group for your AI Studio project.
 - `AZURE_AI_STUDIO_PROJECT_NAME`: The name of your AI Studio project.
 
-To gather your Azure OpenAI API keys, visit the [Azure OpenAI service documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/). For the keys related to your project in Azure AI Studio, you can find them in your project's settings within the Azure portal.
+To gather your Azure OpenAI API keys, visit the [Azure OpenAI service documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/). For the keys related to your project in Azure AI Foundry, you can find them in your project's settings within the Azure portal.
 
 > 📌 **Note**
 > Remember not to commit the .env file to your version control system. Add it to your .gitignore file to prevent it from being tracked.

@@ -7,9 +7,11 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from promptflow.evals.evaluate import evaluate
-from promptflow.core import AzureOpenAIModelConfiguration
-from promptflow.evals.evaluators import QAEvaluator, ContentSafetyEvaluator
+from azure.ai.evaluation import evaluate
+from azure.ai.evaluation import QAEvaluator, ContentSafetyEvaluator
+from azure.ai.projects import AIProjectClient
+from azure.ai.projects import AIProjectClient
+from azure.identity import DefaultAzureCredential
 
 # Set up logging
 from my_utils.ml_logging import get_logger
@@ -24,7 +26,9 @@ class AzureAIQualityEvaluator:
                  api_version: Optional[str] = None,
                  subscription_id: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
-                 project_name: Optional[str] = None):
+                 project_name: Optional[str] = None,
+                 azure_ai_foundry_connector: Optional[str] = None
+                 ):
         """
         Initialize the AzureAIQualityEvaluator with model configuration and evaluators.
 
@@ -37,12 +41,12 @@ class AzureAIQualityEvaluator:
         :param project_name: Azure project name.
         """
         try:
-            self.model_config = AzureOpenAIModelConfiguration(
-                azure_endpoint=azure_endpoint or os.environ.get("AZURE_OPENAI_ENDPOINT"),
-                api_key=api_key or os.environ.get("OPENAI_API_KEY"),
-                azure_deployment=azure_deployment or os.environ.get("AZURE_AOAI_COMPLETION_MODEL_DEPLOYMENT_ID"),
-                api_version=api_version or os.environ.get("DEPLOYMENT_VERSION"),
-            )
+            self.model_config = {
+                "azure_endpoint": os.getenv("AZURE_AOAI_ENDPOINT") or azure_endpoint,
+                "api_key": os.getenv("AZURE_AOAI_API_KEY") or api_key,
+                "azure_deployment": os.getenv("AZURE_AOAI_COMPLETION_MODEL_DEPLOYMENT_ID") or azure_deployment,
+                "api_version": os.getenv("AZURE_AOAI_DEPLOYMENT_VERSION") or api_version,
+            }
 
             self.qa_evaluator = QAEvaluator(model_config=self.model_config, parallel=True)
 
@@ -53,9 +57,16 @@ class AzureAIQualityEvaluator:
                     "resource_group_name": resource_group_name,
                     "project_name": project_name
                 }
+
+            self.project_connection_string = os.getenv("AZURE_AI_FOUNDRY_CONNECTION_STRING")
+            self.credential = DefaultAzureCredential()
+            self.project = AIProjectClient.from_connection_string(
+                conn_str=self.project_connection_string,
+                credential=self.credential
+            )
             
             self.content_safety_evaluator = ContentSafetyEvaluator(
-                project_scope=self.azure_ai_project, parallel=True
+               azure_ai_project=self.azure_ai_project, credential=self.credential, parallel=True
             )
 
             logger.info("AzureAIQualityEvaluator initialized successfully.")
